@@ -84,7 +84,11 @@ c:\projects folder\timetracker\git checkout dev
 
     git checkout -b [branch_name] or git checkout -b feature\landing_page
     
-    feature\landing_page will be the new branch for landing page development
+    feature\landing_page will be the new branch for landing page development task
+
+## push the branch to remote
+
+    git push
     
 
 
