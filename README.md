@@ -90,6 +90,10 @@ c:\projects folder\timetracker\git checkout dev
 
     git push
     
+## switch to a branch
+
+    git switch [branch_name]
+    
 
 
 
