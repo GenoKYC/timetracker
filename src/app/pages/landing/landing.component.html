@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TimeTracker</title>
-  <link href="../../../output.css" rel="stylesheet">
+  <link href="../../../styles.scss" rel="stylesheet">
 </head>
-<body class="bg-[#F6F5F0]">
+<body>
 
   <nav class="bg-[#F6F5F0]">
     <div class=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,10 +45,11 @@
     <p class="text-gray-500 text-lg mb-8 leading-relaxed pt-5" >
       Timetracker is a modern solution for recording Time In, Time Out, and Leave — helping individuals and teams manage their work hours with ease and accuracy.
     </p>
-
-    <!-- Buttons -->
+<h1 class="bg-red-500 text-white text-2xl p-4 rounded">
+  This should be red
+</h1>    <!-- Buttons -->
     <div class="flex flex-col sm:flex-row gap-4 pt-12 ">
-      <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow">
+      <button class="bg-[#B3D1FF] hover:bg-blue-600 text-white px-6 py-3 rounded-md font-semibold shadow">
         Start Tracking for Free
       </button>
       <button class="border border-blue-500 text-blue-500 px-6 py-3 rounded-md font-semibold hover:bg-blue-50">
@@ -65,7 +66,7 @@
     
     <!-- Image Placeholder -->
     <div class="w-full md:w-1/2">
-      <div class="bg-gray-300 w-full h-64 md:h-80 rounded-lg"></div>
+      <div class="bg-[#B3D1FF] w-full h-64 md:h-80 rounded-lg"></div>
     </div>
 
     <!-- Text Content -->
@@ -129,13 +130,62 @@
     </div>
 
     <!-- Image Placeholder -->
-    <div class="bg-gray-300 rounded-lg h-60 md:h-72 w-full"></div>
+    <div class="bg-[#B3D1FF] rounded-lg h-60 md:h-72 w-full"></div>
   </div>
 </section>
 
 <section class="py-16 px-8 bg-[#F6F5F0]">
- 
+ <div class="max-w-5xl mx-auto px-4 text-center">
+    <h2 class="text-xl font-semibold text-gray-900 mb-8">
+      How It Works in 3 Simple Steps
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+
+      <!-- Step 1 -->
+     <div class="bg-[#B3D1FF] rounded-md p-4 text-center">
+      <h3 class="font-semibold text-base text-gray-900 mb-2">Sign Up</h3>
+      <p class="text-sm text-gray-800">Create your account.</p>
+    </div>
+
+      <!-- Step 2 -->
+      <div class="bg-[#B3D1FF] rounded-md p-4 text-center ">
+      <h3 class="font-semibold text-base text-gray-900 mb-2">Log In & Out</h3>
+      <p class="text-sm text-gray-800">Track
+        time daily.</p>
+    </div>
+
+
+     <div class="bg-[#B3D1FF] rounded-md p-4 text-center">
+      <h3 class="font-semibold text-base text-gray-900 mb-2">Account</h3>
+      <p class="text-sm text-gray-800">Create your account.</p>
+    </div>
+
+    </div>
+  </div>
 </section>
+
+<footer class="bg-[#D9D9D9] py-8">
+  <div class="max-w-6xl mx-auto text-center px-4">
+    
+    <!-- Title -->
+    <h1 class="text-3xl font-extrabold text-[#1F2937] mb-6">TimeTracker</h1>
+
+    <!-- Navigation Links -->
+    <nav class="flex justify-center space-x-6 text-sm font-medium text-[#1F2937] mb-6">
+      <a href="#" class="hover:underline">Home</a>
+      <a href="#" class="hover:underline">Features</a>
+      <a href="#" class="hover:underline">How It Works</a>
+      <a href="#" class="hover:underline">About</a>
+      <a href="#" class="hover:underline">Contact</a>
+    </nav>
+
+    <!-- Copyright -->
+    <p class="text-xs text-gray-600">
+      © 2025 TimeTracker. All rights reserved.
+    </p>
+    
+  </div>
+</footer>
 
 </body>
 </html>

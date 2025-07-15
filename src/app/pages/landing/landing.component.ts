@@ -3,10 +3,9 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
-  imports: [RouterLink],
+  standalone: true,            // ✅ Required if you're using `imports: []`
+  // imports: [RouterLink],
   templateUrl: './landing.component.html',
-  styleUrl: './landing.component.scss'
+  styleUrls: ['./landing.component.scss'] // ✅ Corrected property name
 })
-export class LandingComponent {
-
-}
+export class LandingComponent { }

@@ -92,7 +92,9 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+                "src/tailwind.css",
+                "src/styles.scss"
+              
             ],
             "scripts": []
           }
