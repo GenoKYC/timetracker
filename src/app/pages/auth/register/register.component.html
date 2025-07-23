@@ -1,1 +1,47 @@
-<p>register works!</p>
+<div class="fixed inset-0 flex min-h-screen bg-[#F6F5F0] justify-center items-center">
+   <!-- Top branding -->
+    <div class="absolute top-6 left-6 text-2xl font-bold text-[#1F2937]">
+      TimeTracker
+    </div>
+  <!-- Create Account Card -->
+  <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-10 relative">
+  
+
+    <!-- Heading and subtext -->
+    <h2 class="text-4xl font-bold text-[#1F2937] mt-12">Create an Account</h2>
+    <p class="text-base text-[#1F2937] mt-2">
+      Welcome to TimeTracker. Let’s get your company started!
+    </p>
+
+    <!-- Form -->
+    <form class="space-y-3 mt-4 mb-6">
+      <input type="text" placeholder="Create your Company Name" class="w-full px-4 py-2 border rounded-md" />
+      <input type="email" placeholder="Enter your Company Email" class="w-full px-4 py-2 border rounded-md" />
+      <div class="relative">
+        <input type="password" placeholder="Create a password" class="w-full px-4 py-2 border rounded-md pr-10" />
+        <span class="absolute right-3 top-3 text-gray-500 cursor-pointer">
+          <!-- Add eye icon if needed -->
+        </span>
+      </div>
+
+      <div class="flex items-start space-x-2 text-sm pt-2">
+        <input type="checkbox" class="mt-1" />
+        <label class="font-medium text-xs">
+          By Signing up, I have read and agree to TimeTracker’s
+          <a href="#" class="underline">Terms and Privacy Policy</a>
+        </label>
+      </div>
+    </form>
+
+    <!-- Button -->
+    <button class="w-full bg-[#1F2937] text-white py-2 rounded-md hover:bg-[#2d3c51]">
+      Continue
+    </button>
+
+    <!-- Bottom text -->
+    <p class="text-sm text-center text-gray-600 mt-6">
+      Have an account?
+      <a href="/loginpage" class="underline">Log in</a>
+    </p>
+  </div>
+</div>
