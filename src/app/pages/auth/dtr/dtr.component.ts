@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-dtr',
@@ -162,4 +164,7 @@ export class DtrComponent {
 
     return `${dayName} ${MM}-${dd}-${yyyy} ${HH}:${mm}:${ss}`;
   }
+
+  
 }
+

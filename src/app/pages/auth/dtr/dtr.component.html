@@ -1,60 +1,84 @@
-<div class="flex justify-content-center align-items-center h-full">
-    <p-card [style]="{ width: '50rem', overflow: 'hidden' }">
-        <ng-template #header>
 
-            <div style="position: relative; width: 300px; height: 225px;">
-                <video #video autoplay playsinline width="300" height="225" [hidden]="!cameraStarted"></video>
 
-                <!-- Overlay Message -->
-                <div
-                    *ngIf="!cameraStarted"
-                    (click)="startCamera()"
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-                        background-color: rgba(0, 0, 0, 0.6); color: white;
-                        display: flex; align-items: center; justify-content: center;
-                        cursor: pointer; text-align: center;">
-                    <span *ngIf="cameraError">Camera failed to start. Click to retry.</span>
-                    <span *ngIf="!cameraError">Camera not started. Click to start.</span>
-                </div>
-              
-            </div>
-              <br />
-                <canvas #canvas width="300" height="225" hidden></canvas>
-                <br />
-                <img [src]="timeInImage" *ngIf="timeInImage" />
-                <img [src]="timeOutImage" *ngIf="timeOutImage" />
 
-        </ng-template>
-        <ng-template #title> Christan Marave </ng-template>
-        <ng-template #subtitle>Time In {{timeInDateTime}} / Time Out {{timeOutDateTime}} </ng-template>
-        
-        <ng-template #footer>
-            <div class="flex gap-4 mt-1">
-                <p-button 
-                    label="Cancel" 
-                    severity="secondary" 
-                    class="w-full" 
-                    [outlined]="true"  
-                    icon="pi pi-cancel"
-                    (click)="stopCamera()   " 
-                    styleClass="w-full" />
-                <p-button
-                    severity="info" 
-                    label="Time In" 
-                    (click)="timeIn()" 
-                    icon="pi pi-camera" 
-                    iconPos="left" 
-                    class="w-full" 
-                    styleClass="w-full" />
-                 <p-button
-                    severity="info" 
-                    label="Time Out" 
-                    (click)="timeOut()" 
-                    icon="pi pi-camera" 
-                    iconPos="left" 
-                    class="w-full" 
-                    styleClass="w-full" />
-            </div>
-        </ng-template>
-    </p-card>
+<div class="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4 ">
+      <h1 class="text-2xl font-bold text-center mb-1 text-gray-800  pt-3">
+    Photo Time Tracker
+  </h1>
+  <p-card class="w-full max-w-2xl rounded-2xl shadow-lg p-6">
+    
+    <ng-template #header>
+      <div class="relative w-[400px] h-[335px] mx-auto">
+        <video #video autoplay playsinline width="400" height="335" [hidden]="!cameraStarted" class="rounded-md shadow"></video>
+
+        <div 
+          *ngIf="!cameraStarted"
+          (click)="startCamera()"
+          class="absolute top-0 left-0 w-full h-full bg-black/60 text-white flex items-center justify-center text-center cursor-pointer rounded-md"
+        >
+          <span *ngIf="cameraError">Camera failed to start. Click to retry.</span>
+          <span *ngIf="!cameraError">Camera not started. Click to start.</span>
+        </div>
+      </div>
+
+      <canvas #canvas width="300" height="225" hidden></canvas>
+    </ng-template>
+
+    <ng-template #title>
+      <h2 class="text-xl font-bold text-center">Christan Marave</h2>
+    </ng-template>
+
+    <ng-template #subtitle>
+      <p class="text-center text-sm text-gray-600">Time In {{ timeInDateTime }} / Time Out {{ timeOutDateTime }}</p>
+    </ng-template>
+
+    <ng-template #footer>
+      <div class="flex flex-col gap-3 mt-2">
+
+<div class="flex flex-row justify-center gap-4 mt-4">
+  <!-- Cancel Button -->
+  <button 
+    (click)="stopCamera()"
+    class="w-40 bg-[#323944] hover:bg-[#5B8DFF] text-white py-2 px-4 rounded-md font-semibold shadow transition"
+  >
+    <i class="pi pi-times mr-2"></i>
+    Cancel
+
+    
+  </button>
+
+  <!-- Time In Button -->
+  <button 
+    (click)="timeIn()"
+    class="w-40 bg-[#323944] hover:bg-[#5B8DFF] text-white py-2 px-4 rounded-md font-semibold shadow transition"
+  >
+    <i class="pi pi-camera mr-2"></i>
+    Time In
+  </button>
+
+  <!-- Time Out Button -->
+  <button 
+    (click)="timeOut()"
+    class="w-40 bg-[#323944] hover:bg-[#5B8DFF] text-white py-2 px-4 rounded-md font-semibold shadow transition"
+  >
+    <i class="pi pi-camera mr-2"></i>
+    Time Out
+
+  </button>
+</div>
+
+      </div>
+
+      <div class="flex  grid-cols-2 gap-4 mt-6">
+        <div *ngIf="timeInImage" class="text-center">
+          <p class="text-sm font-medium text-gray-600 mb-1">Time In</p>
+          <img [src]="timeInImage" class="rounded-md shadow-md w-full" />
+        </div>
+        <div *ngIf="timeOutImage" class="text-center">
+          <p class="text-sm font-medium text-gray-600 mb-1">Time Out</p>
+          <img [src]="timeOutImage" class="rounded-md shadow-md w-full" />
+        </div>
+      </div>
+    </ng-template>
+  </p-card>
 </div>
