@@ -1,0 +1,56 @@
+<div class="fixed inset-0 flex min-h-screen bg-[#F6F5F0] justify-center items-center">
+  <!-- 🔹 Branding -->
+  <div class="absolute top-6 left-6 text-2xl font-bold text-[#1F2937]">
+    TimeTracker
+  </div>
+
+  <!-- 🔸 Card with Left Image + Right Form -->
+  <div class="w-full max-w-4xl bg-white rounded-xl shadow-lg flex flex-col md:flex-row overflow-hidden">
+
+    <!-- 🔵 Left Side – Image Placeholder -->
+    <div class=" w-[800px] px-4">
+  <img src="signupPic.png" alt="Signup Image" class="w-[40] h-[500px] object-cover object-center items-center justify-center" />
+</div>
+
+    <!-- 🟢 Right Side – Create Account Form -->
+    <div class="md:w-1/2 w-full p-10">
+      <h2 class="text-4xl font-bold text-[#1F2937] mt-4">Create an Account</h2>
+      <p class="text-base text-[#1F2937] mt-2">
+        Welcome to TimeTracker. Let’s get your company started!
+      </p>
+
+      <!-- 🔐 Form Fields -->
+      <form class="space-y-3 mt-4 mb-6">
+        <input type="text" placeholder="Create your Company Name" class="w-full px-4 py-2 border rounded-md" />
+        <input type="email" placeholder="Enter your Company Email" class="w-full px-4 py-2 border rounded-md" />
+        
+        <div class="relative">
+          <input type="password" placeholder="Create a password" class="w-full px-4 py-2 border rounded-md pr-10" />
+          <span class="absolute right-3 top-3 text-gray-500 cursor-pointer">
+            <!-- You can insert an eye icon here for show/hide password -->
+          </span>
+        </div>
+
+        <!-- ✅ Terms Checkbox -->
+        <div class="flex items-start space-x-2 text-sm pt-2">
+          <input type="checkbox" class="mt-1" />
+          <label class="font-medium text-xs">
+            By signing up, I agree to TimeTracker’s
+            <a href="#" class="underline">Terms and Privacy Policy</a>
+          </label>
+        </div>
+      </form>
+
+      <!-- 🎯 Continue Button -->
+      <button class="w-full bg-[#1F2937] text-white py-2 rounded-md hover:bg-[#2d3c51]">
+        Continue
+      </button>
+
+      <!-- 🔁 Bottom Link -->
+      <p class="text-sm text-center text-gray-600 mt-6">
+        Have an account?
+        <a href="/login" class="underline">Log in</a>
+      </p>
+    </div>
+  </div>
+</div>
