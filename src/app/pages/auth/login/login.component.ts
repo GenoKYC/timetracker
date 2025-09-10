@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
+ 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -16,6 +15,8 @@ export class LoginComponent {
 
   constructor(private authService: AuthService) {}
   onLogin() {
+
+    console.log("test");
     this.authService
       .login({ email: this.email, password: this.password })
       .subscribe(
