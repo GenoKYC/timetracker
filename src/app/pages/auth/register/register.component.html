@@ -27,14 +27,18 @@
       </p>
 
       <!-- 🔐 Form Fields -->
-      <form class="space-y-3 mt-4 mb-6">
+      <form (ngSubmit)="onRegister()" class="space-y-3 mt-4 mb-6">
         <input
           type="text"
+          name="user"
+          [(ngModel)]="user"
           placeholder="Create your Company Name"
           class="w-full px-4 py-2 border rounded-md"
         />
         <input
           type="email"
+          name="email"
+          [(ngModel)]="email"
           placeholder="Enter your Company Email"
           class="w-full px-4 py-2 border rounded-md"
         />
@@ -42,6 +46,8 @@
         <div class="relative">
           <input
             type="password"
+            name="password"
+            [(ngModel)]="password"
             placeholder="Create a password"
             class="w-full px-4 py-2 border rounded-md pr-10"
           />
@@ -58,14 +64,15 @@
             <a href="#" class="underline">Terms and Privacy Policy</a>
           </label>
         </div>
-      </form>
 
-      <!-- 🎯 Continue Button -->
-      <button
-        class="w-full bg-[#1F2937] text-white py-2 rounded-md hover:bg-[#2d3c51]"
-      >
-        Continue
-      </button>
+        <!-- 🎯 Continue Button -->
+        <button
+          type="submit"
+          class="w-full bg-[#1F2937] text-white py-2 rounded-md hover:bg-[#2d3c51]"
+        >
+          Continue
+        </button>
+      </form>
 
       <!-- 🔁 Bottom Link -->
       <p class="text-sm text-center text-gray-600 mt-6">
