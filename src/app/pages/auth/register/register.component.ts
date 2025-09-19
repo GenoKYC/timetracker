@@ -3,6 +3,8 @@ import { AuthService } from '../../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -19,7 +21,11 @@ export class RegisterComponent {
   toastMessage = '';
   toastType: 'success' | 'error' = 'success';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
   onRegister() {
     this.message = '';
     this.success = false;
@@ -37,11 +43,18 @@ export class RegisterComponent {
       })
       .subscribe(
         (response: any) => {
-          this.message = 'Registration successful!';
+          this.toastr.success('Registration successful!', 'Success');
+          console.log('Registration successful:', response);
           this.success = true;
+          this.router.navigate(['/login']); // Navigate to login page after successful registration
         },
         (error: any) => {
-          this.message = error.error?.message || 'Registration failed.';
+          const msg =
+            error.error?.error ||
+            error.error?.message ||
+            'Registration failed.';
+          this.toastr.error(msg, 'Error'); // ✅ show error toast instead
+          this.message = msg;
           this.success = false;
         }
       );

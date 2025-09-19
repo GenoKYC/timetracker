@@ -1,34 +1,81 @@
- <aside class="w-64 h-screen bg-gray-900 text-white flex flex-col shadow-lg">
-      <div class="p-6 flex items-center gap-3 border-b border-gray-700">
-        <img src="/assets/logo.png" alt="Logo" class="w-10 h-10 rounded-full" />
-        <span class="text-xl font-bold">MyApp</span>
-      </div>
+<aside class="w-64 h-screen bg-gray-900 text-white flex flex-col shadow-lg">
+  <div class="pl-6 pt-6 pr-6 flex items-center gap-3 border-b border-gray-700">
+    <img
+      src="/assets/logo.png"
+      alt="Logo"
+      class="w-5 h-5 rounded-full bg-[#070707]"
+    />
+    <span class="text-xl font-bold text-[#323944]">TimeTracker</span>
+  </div>
 
-      <nav class="flex-1 p-4 space-y-2">
-        <a
-          routerLink="/main/dashboard"
-          class="block px-4 py-2 rounded hover:bg-gray-800 transition"
-          routerLinkActive="bg-gray-800"
-        >
-          Dashboard
-        </a>
-        <a
-          routerLink="/main/settings"
-          class="block px-4 py-2 rounded hover:bg-gray-800 transition"
-          routerLinkActive="bg-gray-800"
-        >
-          Settings
-        </a>
-        <a
-          routerLink="/main/profile"
-          class="block px-4 py-2 rounded hover:bg-gray-800 transition"
-          routerLinkActive="bg-gray-800"
-        >
-          Profile
-        </a>
-      </nav>
+  <div class="flex flex-col flex-1 justify-between">
+    <nav class="p-4 space-y-1">
+      <a
+        routerLink="/main/dashboard"
+        class="block px-4 py-2 rounded text-[#404040] font-semibold custom-hover-bg custom-hover-text transition-colors duration-200"
+        routerLinkActive="bg-gray-800"
+      >
+        Dashboard
+      </a>
+      <a
+        routerLink="/main/dashboard"
+        class="block px-4 py-2 rounded text-[#404040] font-semibold custom-hover-bg custom-hover-text transition-colors duration-200"
+        routerLinkActive="bg-gray-800"
+      >
+        Employees
+      </a>
+      <a
+        routerLink="/main/dashboard"
+        class="block px-4 py-2 rounded text-[#404040] font-semibold custom-hover-bg custom-hover-text transition-colors duration-200"
+        routerLinkActive="bg-gray-800"
+      >
+        Position & Roles
+      </a>
+      <a
+        routerLink="/main/dashboard"
+        class="block px-4 py-2 rounded text-[#404040] font-semibold custom-hover-bg custom-hover-text transition-colors duration-200"
+        routerLinkActive="bg-gray-800"
+      >
+        Daily Time Record
+      </a>
+      <a
+        routerLink="/main/dashboard"
+        class="block px-4 py-2 rounded text-[#404040] font-semibold custom-hover-bg custom-hover-text transition-colors duration-200"
+        routerLinkActive="bg-gray-800"
+      >
+        Leave Preview
+      </a>
+      <a
+        routerLink="/main/dashboard"
+        class="block px-4 py-2 rounded text-[#404040] font-semibold custom-hover-bg custom-hover-text transition-colors duration-200"
+        routerLinkActive="bg-gray-800"
+      >
+        Employee Rate
+      </a>
+    </nav>
 
-      <div class="p-4 border-t border-gray-700 text-sm text-gray-400">
-        &copy; 2025 MyApp
-      </div>
-    </aside>
+    <nav class="p-4 space-y-1">
+      <a
+        routerLink="/main/dashboard"
+        class="block px-4 py-2 rounded text-[#404040] font-semibold custom-hover-bg custom-hover-text transition-colors duration-200"
+        routerLinkActive="bg-gray-800"
+      >
+        Settings
+      </a>
+
+      <a
+        routerLink="/main/dashboard"
+        class="block px-4 py-2 rounded text-[#404040] font-semibold custom-hover-bg custom-hover-text transition-colors duration-200"
+        routerLinkActive="bg-gray-800"
+      >
+        Logout
+      </a>
+    </nav>
+  </div>
+
+  <!-- <div
+    class="p-2.5 border-t text-[#1F2937] border-gray-700 text-sm text-justify"
+  >
+    &copy; 2025 TimeTracker
+  </div> -->
+</aside>
