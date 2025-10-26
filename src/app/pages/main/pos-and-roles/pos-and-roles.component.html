@@ -1,1 +1,55 @@
-<p>pos-and-roles works!</p>
+<!-- ===== HEADER (unchanged) ===== -->
+<div class="flex-shrink-0 ml-1 mt-3">
+  <div class="text-base font-semibold text-[#4F4F4F]">Positions & Roles</div>
+  <div class="text-2xl font-bold mt-3">Positions</div>
+  <div class="text-lg font-semibold text-[#4F4F4F]">
+    Manage the type of employment (Contractual, Part-Timer, Project-Based)
+  </div>
+</div>
+
+<!-- ===== ACTION BUTTONS (aligned right, consistent size) ===== -->
+<div class="flex justify-end gap-3 mb-3 mt-10">
+  <button
+    class="flex items-center gap-2 bg-[#4F4F4F] text-white font-semibold px-5 py-2 rounded-lg text-sm hover:bg-[#3a3a3a] transition"
+  >
+    Export
+  </button>
+  <button
+    class="flex items-center gap-2 bg-[#3583FF] text-white font-semibold px-5 py-2 rounded-lg text-sm hover:bg-[#2572ec] transition"
+  >
+    Add Position
+  </button>
+</div>
+
+<!-- ===== TABLE (exact 920px wrapper) ===== -->
+<div class="rounded-lg border border-[#c9c9c9] overflow-x-auto w-[920px]">
+  <table class="min-w-full border-collapse">
+    <thead class="">
+      <tr>
+        <ng-container *ngFor="let heading of tableHeaders">
+          <th
+            class="px-4 py-3 text-left text-[#1E1E1E] font-semibold text-base"
+          >
+            {{ heading }}
+          </th>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let record of timeRecords"
+        class="hover:bg-gray-50 transition"
+      >
+        <td class="border-t px-4 py-3 text-[#2B2B2B] font-medium text-sm">
+          {{ record.position }}
+        </td>
+        <td class="border-t px-4 py-3 text-[#374151] font-medium text-sm">
+          {{ record.description }}
+        </td>
+        <td class="border-t px-4 py-3 text-[#374151] font-medium text-sm">
+          {{ record.employees }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,1 +1,134 @@
-<p>leavepreview works!</p>
+<div class="flex-shrink-0 ml-1 mt-6">
+  <div class="text-2xl font-semibold text-[#4F4F4F]">Leave</div>
+  <div class="text-5xl font-bold mt-3">Leave Request Management</div>
+  <div class="text-lg font-semibold text-[#4F4F4F]">
+    Define and manage different types of leave
+  </div>
+</div>
+
+<div class="mt-6 mb-3">
+  <!-- Action buttons above -->
+  <div class="flex justify-end space-x-2 mb-4 mt-10">
+    <button
+      class="bg-[#4F4F4F] text-[#FFFFFF] text-lg px-4 font-semibold py-2 rounded-lg flex items-center"
+    >
+      <!-- <div
+        class="w-13 h-3 bg-[#FFFFFF] rounded-3xl flex items-center justify-center"
+      ></div> -->
+      Export
+    </button>
+    <button
+      class="bg-[#3583FF] text-[#FFFFFF] text-lg px-4 font-semibold py-2 rounded-lg flex items-center"
+    >
+      Add Employee
+    </button>
+  </div>
+
+  <!-- Filter bar below -->
+  <div
+    class="flex gap-3 items-center bg-[#F5F5F5] p-2 rounded-lg shadow-md h-22"
+  >
+    <select
+      class="border border-[#8E8E8E] text-[#2D2D2D] rounded-md px-3 py-2 text-base font-semibold ml-3 w-2"
+    >
+      <option>All Position</option>
+    </select>
+    <select
+      class="border border-[#8E8E8E] text-[#2D2D2D] rounded-md px-3 py-2 text-base font-semibold"
+    >
+      <option>All Status</option>
+    </select>
+    <div
+      class="flex items-center border-[#8E8E8E] text-[#2D2D2D] rounded-md border px-3 py-2 ml-150"
+    >
+      <svg
+        class="w-4 h-4 text-gray-400 mr-2"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          d="M21 21l-4.35-4.35M10.5 17a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"
+        />
+      </svg>
+      <input
+        type="text"
+        placeholder="Search employees..."
+        class="bg-transparent outline-none text-base"
+      />
+    </div>
+  </div>
+
+  <div class="rounded-lg shadow-md bg-[#F5F5F5] p-2 mt-5">
+    <table class="min-w-full border-collapse w-317">
+      <thead>
+        <tr class="bg-[] p-5">
+          <th class="px-4 py-3 text-left text-[#6b7280] font-lg">EMPLOYEE</th>
+          <th class="px-4 py-3 text-left text-[#6b7280] font-lg">POSITION</th>
+          <th class="px-4 py-3 text-left text-[#6b7280] font-lg">CONTACT</th>
+          <th class="px-4 py-3 text-left text-[#6b7280] font-lg">LEAVE TYPE</th>
+          <th class="px-4 py-3 text-left text-[#6b7280] font-lg">
+            DATE (FROM-TO)
+          </th>
+          <th class="px-4 py-3 text-left text-[#6b7280] font-lg">STATUS</th>
+          <th class="px-4 py-3 text-center text-[#6b7280] font-lg">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border-t px-4 py-3 text-[#374151] font-semibold">
+            Kyle Marave
+          </td>
+          <td class="border-t px-4 py-3 text-[#374151] font-medium">
+            Contractual
+          </td>
+          <td class="border-t px-4 py-3 text-[#374151] font-medium">
+            testgmail.com <br />+63 96914533
+          </td>
+          <td class="border-t px-4 py-3 text-[#374151] font-semibold">
+            Sick Leave
+          </td>
+          <td class="border-t px-4 py-3 text-[#16a34a] font-medium">
+            Sep 15 - Sep 20
+          </td>
+          <td class="border-t px-4 py-3 text-[#374151] font-medium">Pending</td>
+
+          <td class="border-t px-4 py-3 flex justify-center gap-6">
+            <button class="text-gray-600 hover:text-blue-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-9 h-9"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15.232 5.232l3.536 3.536M9 11l3.536 3.536m-4.243-4.243l6.364-6.364a2 2 0 012.828 2.828l-6.364 6.364a2 2 0 01-2.828 0l-1.415-1.414a2 2 0 010-2.828z"
+                />
+              </svg>
+            </button>
+            <button class="text-gray-600 hover:text-red-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-9 h-9"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
