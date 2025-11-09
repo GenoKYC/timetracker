@@ -1,20 +1,44 @@
-import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
+import { FormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'app-login',
-  imports: [CardModule, ButtonModule, CommonModule],
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  
-  constructor(private router: Router){}
-  login(): void {
-    this.router.navigateByUrl("/main/dashboard");
+  email = '';
+  password = '';
 
+  constructor(
+    private authService: AuthService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
+  onLogin() {
+    console.log('test');
+    this.authService
+      .login({ email: this.email, password: this.password })
+      .subscribe(
+        (response: any) => {
+          console.log('Login successful:', response);
+          this.toastr.success('Login successful!', 'Success');
+
+          this.router.navigate(['/main/dashboard']); // or ['/dashboard']
+          // Handle successful login, e.g., navigate to another page
+        },
+        (error: any) => {
+          console.error('Login failed:', error);
+          const msg =
+            error.error?.error || error.error?.message || 'Login failed.';
+          this.toastr.error(msg, 'Error');
+          // Handle login error, e.g., show an error message
+        }
+      );
   }
 }
