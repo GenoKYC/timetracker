@@ -1,34 +1,28 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-interface Stat {
-  label: string;
-  value: number;
-  color: string;
-}
+// interface TimeRecord {
+//   position: string;
+//   description: string;
+//   employees: string;
+// }
 
-interface TimeRecord {
+interface PositionRecord {
   position: string;
   description: string;
   employees: string;
 }
+
 @Component({
   selector: 'app-pos-and-roles',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './pos-and-roles.component.html',
   styleUrl: './pos-and-roles.component.scss',
 })
 export class PosAndRolesComponent {
-  // stats: Stat[] = [
-  //   { label: 'Total Employee', value: 14, color: '#000000' },
-  //   { label: 'Present Today', value: 6, color: '#16A34A' },
-  //   { label: 'On Leave', value: 2, color: '#3B82F6' },
-  //   { label: 'Absent', value: 1, color: '#DC2626' },
-  // ];
-
   tableHeaders = ['Position', 'Description', 'Employees'];
-
-  timeRecords: TimeRecord[] = [
+  positions: PositionRecord[] = [
     {
       position: 'Contractual',
       description: 'Full-time contractual ',
@@ -45,4 +39,26 @@ export class PosAndRolesComponent {
       employees: '8',
     },
   ];
+
+  isPositionModalOpen = false;
+
+  newPosition = {
+    position: '',
+    description: '',
+    employees: '',
+  };
+  PositionRecord: any;
+  submitPosition(event: Event) {
+    event.preventDefault();
+
+    this.positions.push({ ...this.newPosition });
+
+    this.isPositionModalOpen = false;
+
+    this.newPosition = {
+      position: '',
+      description: '',
+      employees: '',
+    };
+  }
 }

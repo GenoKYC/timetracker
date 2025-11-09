@@ -11,6 +11,7 @@ import { PosAndRolesComponent } from './pages/main/pos-and-roles/pos-and-roles.c
 import { DailytimerecordComponent } from './pages/main/dailytimerecord/dailytimerecord.component';
 import { LeavepreviewComponent } from './pages/main/leavepreview/leavepreview.component';
 import { SettingsComponent } from './pages/main/settings/settings.component';
+import { EmployeerateComponent } from './pages/main/employeerate/employeerate.component';
 export const routes: Routes = [
   {
     path: 'landing',
@@ -54,7 +55,7 @@ export const routes: Routes = [
       },
       {
         path: 'employeerate',
-        component: EmployeeComponent,
+        component: EmployeerateComponent,
       },
       {
         path: 'settings',

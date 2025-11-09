@@ -1,1 +1,136 @@
-<p>settings works!</p>
+<div class="p-6 bg-gray-50 min-h-screen">
+  <!-- Header -->
+  <div class="mb-6">
+    <h1 class="text-xl font-semibold text-gray-800">Settings</h1>
+    <p class="text-gray-600 mt-1 text-sm">
+      Configure your profile, organization, and app preferences
+    </p>
+  </div>
+
+  <div class="flex gap-6">
+    <!-- Sidebar Tab Selector -->
+    <aside class="flex flex-col gap-3 w-44">
+      <button
+        (click)="selectedTab = 'profile'"
+        [class.font-semibold]="selectedTab === 'profile'"
+        class="rounded px-4 py-2 text-left text-gray-700 hover:bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 transition"
+      >
+        Profile
+      </button>
+      <button
+        (click)="selectedTab = 'organization'"
+        [class.font-semibold]="selectedTab === 'organization'"
+        class="rounded px-4 py-2 text-left text-gray-700 hover:bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 transition"
+      >
+        Organization
+      </button>
+      <button
+        (click)="selectedTab = 'appearance'"
+        [class.font-semibold]="selectedTab === 'appearance'"
+        class="rounded px-4 py-2 text-left text-gray-700 hover:bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 transition"
+      >
+        Appearance
+      </button>
+      <button
+        (click)="selectedTab = 'notifications'"
+        [class.font-semibold]="selectedTab === 'notifications'"
+        class="rounded px-4 py-2 text-left text-gray-700 hover:bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 transition"
+      >
+        Notifications
+      </button>
+    </aside>
+
+    <!-- Content Area -->
+    <section class="flex-1 bg-white rounded shadow p-6 max-w-3xl min-w-0">
+      <!-- Profile Tab -->
+      <div *ngIf="selectedTab === 'profile'" class="space-y-4">
+        <label>
+          <span class="block text-gray-700 text-sm mb-1">Username</span>
+          <input
+            type="text"
+            [(ngModel)]="settings.username"
+            placeholder="John Doe"
+            class="w-full rounded border border-gray-300 p-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </label>
+        <label>
+          <span class="block text-gray-700 text-sm mb-1">Email</span>
+          <input
+            type="email"
+            [(ngModel)]="settings.email"
+            placeholder="john@example.com"
+            class="w-full rounded border border-gray-300 p-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </label>
+      </div>
+
+      <!-- Organization Tab -->
+      <div *ngIf="selectedTab === 'organization'" class="space-y-4">
+        <label>
+          <span class="block text-gray-700 text-sm mb-1"
+            >Organization Name</span
+          >
+          <input
+            type="text"
+            [(ngModel)]="settings.organization"
+            placeholder="ABC Corporation"
+            class="w-full rounded border border-gray-300 p-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </label>
+        <label>
+          <span class="block text-gray-700 text-sm mb-1">Logo URL</span>
+          <input
+            type="text"
+            [(ngModel)]="settings.logo"
+            placeholder="https://example.com/logo.png"
+            class="w-full rounded border border-gray-300 p-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </label>
+      </div>
+
+      <!-- Appearance Tab -->
+      <div *ngIf="selectedTab === 'appearance'" class="space-y-4">
+        <label>
+          <span class="block text-gray-700 text-sm mb-1">Theme</span>
+          <select
+            [(ngModel)]="settings.theme"
+            class="w-full rounded border border-gray-300 p-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+          >
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+        <label class="flex items-center space-x-3">
+          <span class="text-gray-700 text-sm">Primary Color</span>
+          <input
+            type="color"
+            [(ngModel)]="settings.primaryColor"
+            class="w-10 h-10 rounded border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </label>
+      </div>
+
+      <!-- Notifications Tab -->
+      <div *ngIf="selectedTab === 'notifications'" class="space-y-4">
+        <label class="flex items-center space-x-3">
+          <input
+            type="checkbox"
+            [(ngModel)]="settings.emailAlerts"
+            class="rounded border-gray-300"
+          />
+          <span class="text-gray-700 text-sm">Receive Email Alerts</span>
+        </label>
+      </div>
+
+      <!-- Save Button -->
+      <div class="mt-6 flex justify-end">
+        <button
+          (click)="saveSettings()"
+          class="bg-blue-600 text-white px-6 py-3 rounded shadow hover:bg-blue-700 transition font-semibold"
+        >
+          Save Changes
+        </button>
+      </div>
+    </section>
+  </div>
+</div>
