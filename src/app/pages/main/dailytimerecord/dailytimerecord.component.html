@@ -1,0 +1,113 @@
+<!-- ===== HEADER (unchanged) ===== -->
+<div class="flex-shrink-0 ml-1 mt-3">
+  <div class="text-base font-semibold text-[#4F4F4F]">DTR</div>
+  <div class="text-2xl font-bold mt-3">Daily Time Record</div>
+  <div class="text-lg font-semibold text-[#4F4F4F]">
+    Manage the daily time record of employees.
+  </div>
+</div>
+
+<!-- ===== ACTION BUTTONS (aligned right, consistent size) ===== -->
+<div class="flex justify-end gap-3 mb-3 mt-10">
+  <button
+    class="flex items-center gap-2 bg-[#4F4F4F] text-white font-semibold px-5 py-2 rounded-lg text-sm hover:bg-[#3a3a3a] transition"
+  >
+    Export
+  </button>
+  <button
+    class="flex items-center gap-2 bg-[#06B6D4] text-white font-semibold px-5 py-2 rounded-lg text-sm hover:bg-[#0891B2] transition"
+  >
+    Refresh
+  </button>
+</div>
+
+<!-- ===== FILTER BAR (exact position & size) ===== -->
+<div
+  class="flex items-center justify-between p-2 mb-2 rounded-lg border border-[#c9c9c9] w-full max-w-[920px] mx-auto"
+>
+  <!-- Left: Selects -->
+  <div class="flex gap-3">
+    <input
+      type="date"
+      [(ngModel)]="newTaskDueDate"
+      class="w-full md:w-[150px] border border-[#8E8E8E] text-[#2D2D2D] text-sm p-2 rounded-md font-semibold"
+    />
+    <select
+      class="border border-[#8E8E8E] text-[#2D2D2D] rounded-md px-3 py-2 text-xs font-semibold w-40"
+    >
+      <option>All Status</option>
+      <option>Active</option>
+      <option>Inactive</option>
+    </select>
+  </div>
+
+  <!-- Right: Search (fixed invalid class) -->
+  <div
+    class="flex items-center border border-[#8E8E8E] rounded-md px-3 py-2 flex-1 max-w-md min-w-0"
+  >
+    <svg
+      class="w-4 h-4 text-gray-400 mr-2 flex-shrink-0"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        d="M21 21l-4.35-4.35M10.5 17a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"
+      />
+    </svg>
+    <input
+      type="text"
+      placeholder="Search employees..."
+      class="bg-transparent outline-none text-sm flex-1 min-w-0"
+    />
+  </div>
+</div>
+
+<!-- ===== TABLE (exact 920px wrapper) ===== -->
+<div class="rounded-lg border border-[#c9c9c9] overflow-x-auto w-[920px]">
+  <table class="min-w-full border-collapse">
+    <thead class="">
+      <tr>
+        <ng-container *ngFor="let heading of tableHeaders">
+          <th
+            class="px-4 py-3 text-left text-[#1E1E1E] font-semibold text-base"
+          >
+            {{ heading }}
+          </th>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let record of timeRecords"
+        class="hover:bg-gray-50 transition"
+      >
+        <td class="border-t px-4 py-2 text-[#2B2B2B] font-medium text-sm">
+          {{ record.date }}
+        </td>
+        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
+          {{ record.employee }}
+        </td>
+        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
+          {{ record.position }}
+        </td>
+
+        <td
+          class="border-t px-4 py-3 font-medium text-sm"
+          [ngStyle]="{ color: record.statusColor }"
+        >
+          {{ record.status }}
+        </td>
+        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
+          {{ record.timein }}
+        </td>
+        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
+          {{ record.timeout }}
+        </td>
+        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
+          {{ record.totalhours }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
