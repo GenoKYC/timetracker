@@ -9,43 +9,38 @@ import { FormsModule } from '@angular/forms';
 // }
 
 interface PositionRecord {
+  positionid: number;
   position: string;
-  description: string;
-  employees: string;
 }
 
 @Component({
-  selector: 'app-pos-and-roles',
+  selector: 'app-positions',
   imports: [CommonModule, FormsModule],
-  templateUrl: './pos-and-roles.component.html',
-  styleUrl: './pos-and-roles.component.scss',
+  templateUrl: './positions.component.html',
+  styleUrl: './positions.component.scss',
 })
-export class PosAndRolesComponent {
-  tableHeaders = ['Position', 'Description', 'Employees'];
+export class PositionsComponent {
+  tableHeaders = ['Position ID', 'Position'];
   positions: PositionRecord[] = [
     {
+      positionid: 1,
       position: 'Contractual',
-      description: 'Full-time contractual ',
-      employees: '12',
     },
     {
+      positionid: 1,
       position: 'Part-Timer',
-      description: 'Works < 20 hrs/week ',
-      employees: '4',
     },
     {
+      positionid: 1,
       position: 'Project-Based',
-      description: 'Per project contract ',
-      employees: '8',
     },
   ];
 
   isPositionModalOpen = false;
 
   newPosition = {
+    positionid: 0,
     position: '',
-    description: '',
-    employees: '',
   };
   PositionRecord: any;
   submitPosition(event: Event) {
@@ -56,9 +51,8 @@ export class PosAndRolesComponent {
     this.isPositionModalOpen = false;
 
     this.newPosition = {
+      positionid: 0,
       position: '',
-      description: '',
-      employees: '',
     };
   }
 }

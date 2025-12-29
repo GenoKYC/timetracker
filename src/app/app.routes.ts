@@ -7,11 +7,14 @@ import { DtrComponent } from './pages/auth/dtr/dtr.component';
 import { MainComponent } from './pages/main/main.component';
 import { DashboardComponent } from './pages/main/dashboard/dashboard.component';
 import { EmployeeComponent } from './pages/main/employee/employee.component';
-import { PosAndRolesComponent } from './pages/main/pos-and-roles/pos-and-roles.component';
+import { PositionsComponent } from './pages/main/pos-and-roles/positions';
 import { DailytimerecordComponent } from './pages/main/dailytimerecord/dailytimerecord.component';
 import { LeavepreviewComponent } from './pages/main/leavepreview/leavepreview.component';
 import { SettingsComponent } from './pages/main/settings/settings.component';
 import { EmployeerateComponent } from './pages/main/employeerate/employeerate.component';
+import e from 'cors';
+import { EmployeeloginComponent } from './pages/auth/employeelogin/employeelogin.component';
+import { RolesComponent } from './pages/main/roles/roles.component';
 export const routes: Routes = [
   {
     path: 'landing',
@@ -30,6 +33,10 @@ export const routes: Routes = [
     component: DtrComponent,
   },
   {
+    path: 'employeelogin',
+    component: EmployeeloginComponent,
+  },
+  {
     path: 'main',
     component: MainComponent,
     children: [
@@ -42,8 +49,12 @@ export const routes: Routes = [
         component: EmployeeComponent,
       },
       {
-        path: 'posrole',
-        component: PosAndRolesComponent,
+        path: 'positions',
+        component: PositionsComponent,
+      },
+      {
+        path: 'roles',
+        component: RolesComponent,
       },
       {
         path: 'dailytime',

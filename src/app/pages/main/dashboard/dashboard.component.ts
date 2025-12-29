@@ -23,7 +23,7 @@ interface TimeRecord {
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'], // Remove if not using SCSS
-  imports: [CommonModule, DatePipe], // Added DatePipe
+  imports: [CommonModule], // Added DatePipe
   standalone: true, // Explicit if Angular 17+
 })
 export class DashboardComponent implements OnInit {
