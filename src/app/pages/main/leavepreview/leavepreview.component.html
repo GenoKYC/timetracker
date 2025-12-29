@@ -1,34 +1,38 @@
-<!-- ===== HEADER (unchanged) ===== -->
-<div class="flex-shrink-0 ml-1 mt-3">
-  <div class="text-base font-semibold text-[#4F4F4F]">Leave</div>
-  <div class="text-2xl font-bold mt-3">Leave Request Management</div>
-  <div class="text-lg font-semibold text-[#4F4F4F]">
+<!-- ===== HEADER ===== -->
+<div class="flex-shrink-0 mt-3 mb-6">
+  <div class="text-base font-semibold text-[#323944]">Leave</div>
+  <div class="text-2xl font-bold mt-3 text-[#1F2937]">
+    Leave Request Management
+  </div>
+  <div class="text-lg font-semibold text-[#323944]">
     Define and manage different types of leave
   </div>
 </div>
 
-<!-- ===== ACTION BUTTONS (aligned right, consistent size) ===== -->
-<div class="flex justify-end gap-3 mb-3 mt-10">
+<!-- ===== ACTION BUTTONS ===== -->
+<div class="flex w-full justify-end gap-3 mb-4 mt-10">
   <button
-    class="flex items-center gap-2 bg-[#4F4F4F] text-white font-semibold px-5 py-2 rounded-lg text-sm hover:bg-[#3a3a3a] transition"
+    class="flex items-center gap-2 bg-[#323944] text-white font-semibold px-5 py-2 rounded-lg text-sm hover:bg-[#252C38] transition"
   >
     Export
   </button>
   <button
     (click)="isModalOpen = true"
-    class="flex items-center gap-2 bg-[#3583FF] text-white font-semibold px-5 py-2 rounded-lg text-sm hover:bg-[#2572ec] transition"
+    class="flex items-center gap-2 bg-[#5B8DFF] text-white font-semibold px-5 py-2 rounded-lg text-sm hover:bg-[#3D71E7] transition"
   >
     Add Employee
   </button>
 </div>
 
-<!-- Modal Popup -->
+<!-- ===== MODAL POPUP FOR ADD LEAVE REQUEST ===== -->
 <div
   *ngIf="isModalOpen"
   class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4"
 >
-  <div class="p-6 max-w-xl w-full">
-    <h2 class="text-xl font-bold mb-4">Add Leave Request</h2>
+  <div
+    class="p-6 max-w-xl w-full bg-white rounded-lg shadow-lg max-h-[90vh] overflow-y-auto mx-4 my-6"
+  >
+    <h2 class="text-xl font-bold mb-6 border-b pb-2">Add Leave Request</h2>
     <form
       (submit)="submitLeaveRequest($event)"
       class="grid grid-cols-1 md:grid-cols-2 gap-5"
@@ -41,11 +45,11 @@
         <input
           id="employee"
           type="text"
-          class="border border-gray-300 rounded p-2 w-full text-sm"
           placeholder="e.g. Jane Doe"
           [(ngModel)]="newLeaveRequest.employee"
           name="employee"
           required
+          class="border border-gray-300 rounded p-2 w-full text-sm"
         />
       </div>
 
@@ -57,11 +61,11 @@
         <input
           id="position"
           type="text"
-          class="border border-gray-300 rounded p-2 w-full text-sm"
           placeholder="e.g. Software Engineer"
           [(ngModel)]="newLeaveRequest.position"
           name="position"
           required
+          class="border border-gray-300 rounded p-2 w-full text-sm"
         />
       </div>
 
@@ -73,10 +77,10 @@
         <input
           id="contact"
           type="text"
-          class="border border-gray-300 rounded p-2 w-full text-sm"
           placeholder="e.g. 09123456789"
           [(ngModel)]="newLeaveRequest.contact"
           name="contact"
+          class="border border-gray-300 rounded p-2 w-full text-sm"
         />
       </div>
 
@@ -88,11 +92,11 @@
         <input
           id="leavetype"
           type="text"
-          class="border border-gray-300 rounded p-2 w-full text-sm"
           placeholder="e.g. Sick Leave"
           [(ngModel)]="newLeaveRequest.leavetype"
           name="leavetype"
           required
+          class="border border-gray-300 rounded p-2 w-full text-sm"
         />
       </div>
 
@@ -102,9 +106,9 @@
         <input
           id="date"
           type="date"
-          class="border border-gray-300 rounded p-2 w-full text-sm"
           [(ngModel)]="newLeaveRequest.date"
           name="date"
+          class="border border-gray-300 rounded p-2 w-full text-sm"
         />
       </div>
 
@@ -115,161 +119,46 @@
         >
         <select
           id="status"
-          class="border border-gray-300 rounded p-2 w-full text-sm"
           [(ngModel)]="newLeaveRequest.status"
           name="status"
           required
+          class="border border-gray-300 rounded p-2 w-full text-sm"
         >
-          <option value="" disabled selected>Select Status</option>
-          <option>Pending</option>
+          <option value="" disabled selected>Select status</option>
           <option>Approved</option>
+          <option>Pending</option>
           <option>Rejected</option>
         </select>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="md:col-span-2 flex justify-end gap-3 w-full mt-1">
-        <button
-          type="button"
-          (click)="isModalOpen = false"
-          class="bg-gray-300 text-gray-700 px-4 py-2 rounded"
+      <!-- Date From-To -->
+      <div>
+        <label for="dateRange" class="block mb-1 font-semibold text-sm"
+          >Date (From-To)</label
         >
-          Cancel
-        </button>
-        <button
-          (click)="isModalOpen = true"
-          type="submit"
-          class="bg-[#3583FF] text-white px-4 py-2 rounded-lg hover:bg-[#2572ec] transition"
-        >
-          Submit
-        </button>
+        <input
+          id="dateRange"
+          type="text"
+          placeholder="e.g. 12 Jan 2024 - 15 Jan 2024"
+          [(ngModel)]="newLeaveRequest.date"
+          name="dateRange"
+          required
+          class="border border-gray-300 rounded p-2 w-full text-sm"
+        />
       </div>
-    </form>
-  </div>
-</div>
-
-<div
-  *ngIf="isModalOpen"
-  class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4"
->
-  <div
-    class="bg-white rounded-xl p-6 max-w-lg w-full shadow-lg mx-4 my-6 max-h-[90vh] overflow-y-auto"
-  >
-    <h2 class="text-2xl font-bold mb-6 border-b pb-2">Add Leave Request</h2>
-    <form (submit)="submitLeaveRequest($event)" class="space-y-6">
-      <!-- Personal Info -->
-      <section>
-        <h3 class="text-lg font-semibold mb-3">Employee Details</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label for="employee" class="block mb-1 font-semibold text-sm"
-              >Employee</label
-            >
-            <input
-              id="employee"
-              type="text"
-              placeholder="Employee name"
-              class="border border-gray-300 rounded p-2 w-full text-sm"
-              [(ngModel)]="newLeaveRequest.employee"
-              name="employee"
-              required
-            />
-          </div>
-          <div>
-            <label for="contact" class="block mb-1 font-semibold text-sm"
-              >Contact</label
-            >
-            <input
-              id="contact"
-              type="text"
-              placeholder="Contact number"
-              class="border border-gray-300 rounded p-2 w-full text-sm"
-              [(ngModel)]="newLeaveRequest.contact"
-              name="contact"
-              required
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- Leave Details -->
-      <section>
-        <h3 class="text-lg font-semibold mb-3">Leave Information</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label for="position" class="block mb-1 font-semibold text-sm"
-              >Position</label
-            >
-            <input
-              id="position"
-              type="text"
-              placeholder="Position"
-              class="border border-gray-300 rounded p-2 w-full text-sm"
-              [(ngModel)]="newLeaveRequest.position"
-              name="position"
-              required
-            />
-          </div>
-          <div>
-            <label for="leavetype" class="block mb-1 font-semibold text-sm"
-              >Leave Type</label
-            >
-            <input
-              id="leavetype"
-              type="text"
-              placeholder="Leave type (e.g. Annual)"
-              class="border border-gray-300 rounded p-2 w-full text-sm"
-              [(ngModel)]="newLeaveRequest.leavetype"
-              name="leavetype"
-              required
-            />
-          </div>
-          <div>
-            <label for="status" class="block mb-1 font-semibold text-sm"
-              >Status</label
-            >
-            <select
-              id="status"
-              class="border border-gray-300 rounded p-2 w-full text-sm"
-              [(ngModel)]="newLeaveRequest.status"
-              name="status"
-              required
-            >
-              <option value="" disabled selected>Select status</option>
-              <option>Approved</option>
-              <option>Pending</option>
-              <option>Rejected</option>
-            </select>
-          </div>
-          <div>
-            <label for="date" class="block mb-1 font-semibold text-sm"
-              >Date (From-To)</label
-            >
-            <input
-              id="date"
-              type="text"
-              placeholder="e.g. 12 Jan 2024 - 15 Jan 2024"
-              class="border border-gray-300 rounded p-2 w-full text-sm"
-              [(ngModel)]="newLeaveRequest.date"
-              name="date"
-              required
-            />
-          </div>
-        </div>
-      </section>
 
       <!-- Buttons -->
-      <div class="flex justify-end gap-3 pt-6 border-t">
+      <div class="md:col-span-2 flex justify-end gap-3 pt-6 border-t">
         <button
           type="button"
-          class="bg-gray-300 text-gray-700 px-4 py-2 rounded"
           (click)="isModalOpen = false"
+          class="bg-gray-300 text-gray-700 px-4 py-2 rounded"
         >
           Cancel
         </button>
         <button
           type="submit"
-          class="bg-[#3583FF] text-white px-4 py-2 rounded hover:bg-[#2572ec] transition"
+          class="bg-[#5B8DFF] text-white px-4 py-2 rounded hover:bg-[#3D71E7] transition"
         >
           Submit
         </button>
@@ -278,11 +167,11 @@
   </div>
 </div>
 
-<!-- ===== FILTER BAR (exact position & size) ===== -->
+<!-- ===== FILTER BAR ===== -->
 <div
-  class="flex items-center justify-between p-2 mb-2 rounded-lg border border-[#c9c9c9] w-full max-w-[920px] mx-auto"
+  class="flex items-center justify-between p-2 mb-3 rounded-lg border border-[#E5E7EB] w-full bg-[#FFFFFF] shadow-md max-w-[920px] mx-auto"
 >
-  <!-- Left: Selects -->
+  <!-- Left: Position & Status -->
   <div class="flex gap-3">
     <select
       class="border border-[#8E8E8E] text-[#2D2D2D] rounded-md px-3 py-2 text-xs font-semibold w-40"
@@ -301,9 +190,9 @@
     </select>
   </div>
 
-  <!-- Right: Search (fixed invalid class) -->
+  <!-- Right: Search -->
   <div
-    class="flex items-center border border-[#8E8E8E] rounded-md px-3 py-2 flex-1 max-w-md min-w-0"
+    class="flex items-center border border-[#8E8E8E] rounded-md px-3 py-2 flex-1 max-w-md min-w-0 bg-[#F6F5F0]"
   >
     <svg
       class="w-4 h-4 text-gray-400 mr-2 flex-shrink-0"
@@ -323,14 +212,16 @@
   </div>
 </div>
 
-<!-- ===== TABLE (exact 920px wrapper) ===== -->
-<div class="rounded-lg border border-[#c9c9c9] overflow-x-auto w-[920px]">
-  <table class="min-w-full border-collapse">
-    <thead class="">
+<!-- ===== TABLE CARD ===== -->
+<div
+  class="rounded-lg border border-[#E5E7EB] bg-[#FFFFFF] shadow-lg p-4 w-full min-w-[750px] max-h-[375px] overflow-auto"
+>
+  <table class="border-collapse w-full min-w-[750px]">
+    <thead>
       <tr>
         <ng-container *ngFor="let heading of tableHeaders">
           <th
-            class="px-4 py-3 text-left text-[#1E1E1E] font-semibold text-base"
+            class="px-4 py-3 text-left text-[#1F2937] font-semibold text-base border-b border-[#E5E7EB]"
           >
             {{ heading }}
           </th>
@@ -340,22 +231,19 @@
     <tbody>
       <tr
         *ngFor="let record of timeRecords"
-        class="hover:bg-gray-50 transition"
+        class="hover:bg-[#F6F5F0] transition"
       >
-        <td class="border-t px-4 py-2 text-[#2B2B2B] font-medium text-sm">
+        <td class="border-t px-4 py-2 text-[#323944] font-medium text-sm">
           {{ record.employee }}
         </td>
-        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
+        <td class="border-t px-4 py-2 text-[#323944] font-medium text-sm">
           {{ record.position }}
         </td>
-        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
+        <td class="border-t px-4 py-2 text-[#323944] font-medium text-sm">
           {{ record.contact }}
         </td>
-        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
+        <td class="border-t px-4 py-2 text-[#323944] font-medium text-sm">
           {{ record.leavetype }}
-        </td>
-        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
-          {{ record.date }}
         </td>
         <td
           class="border-t px-4 py-3 font-medium text-sm"

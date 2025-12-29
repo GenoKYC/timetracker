@@ -1,7 +1,7 @@
 <div class="flex-shrink-0 ml-1 mt-3">
-  <div class="text-base font-semibold text-[#4F4F4F]">ER</div>
-  <div class="text-2xl font-bold mt-3">Employee Rate</div>
-  <div class="text-lg font-semibold text-[#4F4F4F]">
+  <div class="text-base font-semibold text-[#323944]">ER</div>
+  <div class="text-2xl font-bold mt-3 text-[#1F2937]">Employee Rate</div>
+  <div class="text-lg font-semibold text-[#323944]">
     Manage employee rates here
   </div>
 </div>
@@ -112,7 +112,7 @@
       <tr>
         <ng-container *ngFor="let heading of tableHeaders">
           <th
-            class="px-4 py-3 text-left text-[#1E1E1E] font-semibold text-base"
+            class="px-4 py-3 text-left text-[#1F2937] font-semibold text-base"
           >
             {{ heading }}
           </th>
@@ -124,10 +124,10 @@
         *ngFor="let record of timeRecords"
         class="hover:bg-gray-50 transition"
       >
-        <td class="border-t px-4 py-2 text-[#2B2B2B] font-medium text-sm">
+        <td class="border-t px-4 py-2 text-[#323944] font-medium text-sm">
           {{ record.position }}
         </td>
-        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
+        <td class="border-t px-4 py-2 text-[#323944] font-medium text-sm">
           {{ record.rateamount }}
         </td>
       </tr>

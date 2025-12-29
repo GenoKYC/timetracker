@@ -7,7 +7,7 @@ import { DtrComponent } from './pages/auth/dtr/dtr.component';
 import { MainComponent } from './pages/main/main.component';
 import { DashboardComponent } from './pages/main/dashboard/dashboard.component';
 import { EmployeeComponent } from './pages/main/employee/employee.component';
-import { PositionsComponent } from './pages/main/pos-and-roles/positions';
+import { PositionsComponent } from './pages/main/positions/positions';
 import { DailytimerecordComponent } from './pages/main/dailytimerecord/dailytimerecord.component';
 import { LeavepreviewComponent } from './pages/main/leavepreview/leavepreview.component';
 import { SettingsComponent } from './pages/main/settings/settings.component';

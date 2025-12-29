@@ -1,18 +1,21 @@
-<div class="flex-shrink-0 ml-1 mt-3">
-  <div class="text-base font-semibold text-[#4F4F4F]">Overview</div>
-  <div class="text-2xl font-bold mt-3">Welcome back!, {{ companyName }}</div>
-  <div class="text-lg font-semibold text-[#4F4F4F]">
+<!-- Overview Block -->
+<div class="flex-shrink-0 ml-1 mt-3 tracking-tight mb-6">
+  <div class="text-base font-semibold text-[#323944]">Overview</div>
+  <div class="text-2xl font-bold mt-3 text-[#1F2937]">
+    Welcome back!, {{ companyName }}
+  </div>
+  <div class="text-lg font-semibold text-[#323944]">
     It’s {{ day }}, {{ date }}
   </div>
 </div>
 
-<!-- One-row card layout -->
-<div class="flex flex-row flex-wrap gap-4 p-1 pb-3 mt-6">
+<!-- Stat Cards -->
+<div class="flex flex-row flex-wrap gap-4 p-1 pb-6">
   <ng-container *ngFor="let stat of stats">
     <div
-      class="bg-white text-lg text-[#4F4F4F] font-bold rounded-lg p-4 border border-[#E0E0E0] flex flex-col items-start w-[210px] min-w-[150px]"
+      class="bg-[#FFFFFF] text-lg text-[#1F2937] font-bold rounded-lg p-4 border border-[#E5E7EB] flex flex-col items-start w-[210px] min-w-[150px] shadow-md"
     >
-      <span class="text-[#363636] text-lg mb-2 font-semibold">
+      <span class="text-[#1F2937] text-lg mb-2 font-semibold">
         {{ stat.label }}
       </span>
       <span class="text-3xl font-bold" [ngStyle]="{ color: stat.color }">
@@ -22,16 +25,21 @@
   </ng-container>
 </div>
 
-<h2 class="text-[#444444] font-medium text-lg mb-3 mt-4">
+<!-- Section Heading -->
+<h2 class="text-[#1F2937] font-medium text-lg mb-4 mt-1">
   Latest Time In/Time Out
 </h2>
-<div class="rounded-lg border border-[#E0E0E0] overflow-x-auto">
-  <table class="min-w-full border-collapse">
+
+<!-- Table as Card -->
+<div
+  class="rounded-lg border border-[#E5E7EB] bg-[#FFFFFF] shadow-lg p-4 mt-3 max-w-5xl w-full mx-auto overflow-x-auto"
+>
+  <table class="border-collapse w-full min-w-[640px]">
     <thead>
       <tr>
         <ng-container *ngFor="let heading of tableHeaders">
           <th
-            class="px-4 py-3 text-left text-[#1E1E1E] font-semibold text-base"
+            class="px-4 py-2 text-left text-[#1F2937] font-semibold text-base border-b border-[#E5E7EB]"
           >
             {{ heading }}
           </th>
@@ -39,14 +47,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let record of timeRecords">
-        <td class="border-t px-4 py-2 text-[#2B2B2B] font-medium text-sm">
+      <tr
+        *ngFor="let record of timeRecords"
+        class="hover:bg-[#F6F5F0] transition-colors"
+      >
+        <td class="border-t px-4 py-2 text-[#323944] font-medium text-sm">
           {{ record.employee }}
         </td>
-        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
+        <td class="border-t px-4 py-2 text-[#323944] font-medium text-sm">
           {{ record.position }}
         </td>
-        <td class="border-t px-4 py-2 text-[#374151] font-medium text-sm">
+        <td class="border-t px-4 py-2 text-[#323944] font-medium text-sm">
           {{ record.department }}
         </td>
         <td
